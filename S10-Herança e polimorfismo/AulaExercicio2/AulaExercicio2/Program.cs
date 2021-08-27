@@ -43,10 +43,6 @@ namespace AulaExercicio2
             {
                 Console.WriteLine(emp.Payment(emp.Hours, emp.ValuePerHour).ToString());
             }
-            foreach(OutSourcedEmployee outs in employees)
-            {
-                Console.WriteLine(outs.Payment(outs.Hours, outs.ValuePerHour).ToString());
-            }
         }
     }
 }
