@@ -1,4 +1,4 @@
-﻿using ProjetoXadrez.tabuleiro;
+﻿using tabuleiro;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,7 @@ namespace tabuleiro
 {
     class Tabuleiro
     {
-        public int Linhas { get; set; }
+        public int Linhas { get; private set; }
         public int Colunas { get; set; }
         private Peca[,] pecas;
 
@@ -18,24 +18,24 @@ namespace tabuleiro
             pecas = new Peca[linhas, colunas];
         }
 
-        public Peca peca(int linha, int coluna)
+        public Peca Peca(int linha, int coluna)
         {
             return pecas[linha, coluna];
         }
 
-        public Peca peca(Posicao pos)
+        public Peca Peca(Posicao pos)
         {
             return pecas[pos.Linha, pos.Coluna];
         }
 
-        public bool existePeca(Posicao pos)
+        public bool ExistePeca(Posicao pos)
         {
             ValidarPosicao(pos);
-            return peca(pos) != null;
+            return Peca(pos) != null;
         }
 
 
-        public bool posicaoValida(Posicao pos)
+        public bool PosicaoValida(Posicao pos)
         {
             if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
             {
@@ -44,9 +44,9 @@ namespace tabuleiro
             return true;
         }
 
-        public void colocarPeca(Peca pec, Posicao pos)
+        public void ColocarPeca(Peca pec, Posicao pos)
         {
-            if (existePeca(pos))
+            if (ExistePeca(pos))
             {
                 throw new TabuleiroException("Ja existe uma peça nesta posição: " 
                     + "Linha: " + pos.Linha 
@@ -56,9 +56,22 @@ namespace tabuleiro
             pec.posicao = pos;
         }
 
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (Peca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = Peca(pos);
+
+            aux.posicao = null;
+            pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+        }
+
         public void ValidarPosicao(Posicao pos)
         {
-            if (!posicaoValida(pos))
+            if (!PosicaoValida(pos))
             {
                 throw new TabuleiroException("Posicao invalida");
             }

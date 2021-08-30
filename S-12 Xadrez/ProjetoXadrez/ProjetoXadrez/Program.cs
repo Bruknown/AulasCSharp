@@ -1,6 +1,5 @@
-﻿using ProjetoXadrez.tabuleiro;
+﻿using tabuleiro;
 using System;
-using tabuleiro;
 using xadrez;
 
 
@@ -12,16 +11,26 @@ namespace ProjetoXadrez
         {
             try
             {
-                Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(0, 0));
-                tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(0, 7));
+                while (!partida.Terminada)
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.Tab);
 
-                tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.Preta), new Posicao(0, 3));
+                    Console.WriteLine("Origem: ");
+
+                    Posicao origem = Tela.lerPosicaoXadrez().ToPosicao();
 
 
-                Tela.imprimirTabuleiro(tabuleiro);
+                    Console.WriteLine("Destino: ");
 
+                    Posicao destino = Tela.lerPosicaoXadrez().ToPosicao();
+
+                    partida.executaMovimento(origem, destino);
+                }
+
+                Tela.ImprimirTabuleiro(partida.Tab);
                 Console.ReadLine();
             }
             catch (TabuleiroException e)

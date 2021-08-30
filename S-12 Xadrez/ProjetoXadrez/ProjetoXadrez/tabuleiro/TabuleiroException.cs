@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjetoXadrez.tabuleiro
+namespace tabuleiro
 {
     class TabuleiroException : Exception
     {
