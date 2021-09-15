@@ -8,6 +8,34 @@ namespace ProjetoXadrez
 {
     class Tela
     {
+        public static void ImprimirPartida(PartidaDeXadrez partida)
+        {
+            ImprimirTabuleiro(partida.Tab);
+
+            ImprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.Turno);
+            Console.WriteLine("aguardando jogada: " + partida.JogadorAtual);
+        }
+
+        public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            Console.Write("Pecas Capturadas: ");
+            Console.Write("Brancas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
+            Console.Write(" Pretas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
+        }
+
+        public static void imprimirConjunto(HashSet<Peca> pecas)
+        {
+            Console.Write("[");
+            foreach(Peca x in pecas)
+            {
+                Console.Write(x + " ");
+            }
+            Console.Write("]");
+        }
 
         public static void ImprimirTabuleiro(Tabuleiro tab)
         {
