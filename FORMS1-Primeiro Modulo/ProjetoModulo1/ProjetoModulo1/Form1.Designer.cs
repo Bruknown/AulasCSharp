@@ -33,8 +33,8 @@ namespace ProjetoModulo1
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.lblNomeSaida = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLimpar
@@ -74,33 +74,30 @@ namespace ProjetoModulo1
             this.txtNome.TabIndex = 3;
             this.txtNome.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyUp);
             // 
-            // lblNomeSaida
+            // comboBox1
             // 
-            this.lblNomeSaida.AutoSize = true;
-            this.lblNomeSaida.Location = new System.Drawing.Point(12, 71);
-            this.lblNomeSaida.Name = "lblNomeSaida";
-            this.lblNomeSaida.Size = new System.Drawing.Size(39, 20);
-            this.lblNomeSaida.TabIndex = 4;
-            this.lblNomeSaida.Text = "Lista";
-            this.lblNomeSaida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(75, 77);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(162, 28);
+            this.comboBox1.TabIndex = 4;
             // 
-            // listBox1
+            // label1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(75, 71);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(460, 244);
-            this.listBox1.TabIndex = 5;
-            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Nomes";
             // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 428);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.lblNomeSaida);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btnCadastrar);
@@ -121,8 +118,7 @@ namespace ProjetoModulo1
         private System.Windows.Forms.Label lblNomeCopiado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label lblNomeSaida;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
