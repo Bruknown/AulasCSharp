@@ -12,7 +12,7 @@ namespace ProjetoModulo1
 {
     public partial class form : Form
     {
-        private int iSelecionado;
+        private int iSelecionado = -1;
 
         public form()
         {
@@ -21,8 +21,35 @@ namespace ProjetoModulo1
 
         private void btnBotao1_Click(object sender, EventArgs e)
         {
+            if (iSelecionado > -1)
+            {
+                listBox1.Items[iSelecionado] = txtNome.Text;
+                Ordenar();
+                btnLimpar_Click(btnLimpar, new EventArgs());
+                iSelecionado = -1;
+                btnCadastrar.Text = "Cadastrar";
+                return;
+            }
             listBox1.Items.Add(txtNome.Text);
             txtNome.Text = String.Empty;
+            Ordenar();
+            btnLimpar_Click(btnLimpar, new EventArgs());
+        }
+
+        private void Ordenar()
+        {
+            ListBox.ObjectCollection lista = listBox1.Items;
+            List<String> listaString = new List<String>();
+            foreach (var item in lista)
+            {
+                listaString.Add(item.ToString());
+            }
+            listaString = (from s in listaString select s).OrderBy(x => x).ToList();
+            listBox1.Items.Clear();
+            foreach (var item in listaString)
+            {
+                listBox1.Items.Add(item);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,7 +59,6 @@ namespace ProjetoModulo1
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
             txtNome.Text = String.Empty;
         }
 
@@ -47,7 +73,7 @@ namespace ProjetoModulo1
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             iSelecionado = listBox1.SelectedIndex;
-            txtNome.Text = ListBox1.Items[iSelecionado];
+            txtNome.Text = listBox1.Items[iSelecionado].ToString();
             btnCadastrar.Text = "Alterar";
         }
     }
