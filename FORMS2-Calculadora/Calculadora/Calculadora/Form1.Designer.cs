@@ -84,6 +84,7 @@ namespace Calculadora
             this.btn3.TabIndex = 2;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn0
             // 
@@ -103,6 +104,7 @@ namespace Calculadora
             this.btn6.TabIndex = 6;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn5
             // 
@@ -112,6 +114,7 @@ namespace Calculadora
             this.btn5.TabIndex = 5;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn4
             // 
@@ -121,6 +124,7 @@ namespace Calculadora
             this.btn4.TabIndex = 4;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn9
             // 
@@ -130,6 +134,7 @@ namespace Calculadora
             this.btn9.TabIndex = 10;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = true;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // btn8
             // 
@@ -139,6 +144,7 @@ namespace Calculadora
             this.btn8.TabIndex = 9;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = true;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn7
             // 
@@ -148,6 +154,7 @@ namespace Calculadora
             this.btn7.TabIndex = 8;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btnDivision
             // 
@@ -157,6 +164,7 @@ namespace Calculadora
             this.btnDivision.TabIndex = 13;
             this.btnDivision.Text = "/";
             this.btnDivision.UseVisualStyleBackColor = true;
+            this.btnDivision.Click += new System.EventHandler(this.btnDivision_Click);
             // 
             // btnPlus
             // 
@@ -279,16 +287,18 @@ namespace Calculadora
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(27, 12);
+            this.textBox1.MaxLength = 10;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(349, 70);
             this.textBox1.TabIndex = 25;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 436);
+            this.ClientSize = new System.Drawing.Size(399, 433);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSquare);
@@ -316,6 +326,7 @@ namespace Calculadora
             this.Controls.Add(this.btn1);
             this.Name = "txtDisplay";
             this.Text = "Calculadora";
+            this.Load += new System.EventHandler(this.txtDisplay_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
